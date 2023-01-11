@@ -1,59 +1,63 @@
-﻿// Урок 4. Функции
-// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A 
-//в натуральную степень B.
-//3, 5 -> 243 (3⁵)
-//2, 4 -> 16
+﻿//Урок 5. Функции и одномерные массивы
+//Задача 34: Задайте массив заполненный случайными положительными 
+//трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+//[345, 897, 568, 234] -> 2
 
-Console.WriteLine ("Введите число А");
-int a = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine ("Введите число B");
-int b = Convert.ToInt32(Console.ReadLine());
-int V=0;
-while (b==0)
+int [] array=new int [8];
+int count=0;
+for (int i=0; i<array.Length;i++)
 {
-    V*=a;
-    b-1;
+    array [i]=new Random().Next(100,1000);
+    if (array[i]%2==0)
+    {
+        count++;
+    }
 }
+Console.WriteLine(String.Join (",", array));
+Console.Write(count);
 
-________________________________________
-//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-//452 -> 11
+_________________________________
 
-Console.WriteLine ("Введите число");
-int num=Convert.ToInt32(Console.ReadLine());
+//Задача 36: Задайте одномерный массив, заполненный случайными числами. 
+//Найдите сумму элементов, стоящих на нечётных позициях.
+//[3, 7, 23, 12] -> 19
+//[-4, -6, 89, 6] -> 0
+
+int [] array=new int[5];
 int sum=0;
-int Func ()
+for (int i=0; i<array.Length; i++)
 {
-    while (num>0)
+    array [i]=new Random ().Next (-99,100);
+    if (i%2==1)
     {
-       int temp=num%10; 
-       sum+=temp;
-       num=num/10;
+        sum+=array [i];
     }
-    return sum;
 }
-Console.WriteLine (Func ());
+Console.WriteLine(String.Join (",", array));
+Console.WriteLine(sum);
 
 
 ________________________________________
-//Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-//1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-//6, 1, 33 -> [6, 1, 33]
+//Задача 38: Задайте массив вещественных чисел. Найдите разницу между 
+//максимальным и минимальным элементов массива.
+//[3 7 22 2 78] -> 76
 
-int [] Print();
+int [] array=new int[5];
+int min=100;
+int max=0;
 
+for (int i=0; i<array.Length; i++)
 {
-    int[] array=new int [];
-    for (int i=0; 1<array.Length; i+1)
+    array [i]=new Random ().Next (0,100);
+    if (array[i]>max)
     {
-        Console.WriteLine ("Введите элемент массива/n");
-        array[i]=Convert.ToInt32(Console.ReadLine());
+        max=array [i];
     }
-       return sum;
+    if (array [i]<min)
+    {
+        min=array [i];
+    }
 }
-    
-Console.WriteLine (string.Join (",", Print));
-
-
+Console.WriteLine(String.Join (",", array));
+Console.WriteLine(max-min);
 
